@@ -1,0 +1,166 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider, useAuth } from './contexts/AuthContext';
+import { ToastProvider } from './contexts/ToastContext';
+import { Navbar } from './components/layout/Navbar';
+import { Sidebar } from './components/layout/Sidebar';
+import { ProtectedRoute } from './components/layout/ProtectedRoute';
+import { Login } from './pages/auth/Login';
+import { StudentRegister } from './pages/auth/StudentRegister';
+import { ProfilePage } from './pages/profile/ProfilePage';
+
+// Dashboards
+import { StudentDashboard } from './pages/dashboard/StudentDashboard';
+import { DoctorDashboard } from './pages/dashboard/DoctorDashboard';
+import { PharmacistDashboard } from './pages/dashboard/PharmacistDashboard';
+import { AdminDashboard } from './pages/dashboard/AdminDashboard';
+
+// Phase 2 Pages
+import { BookAppointment } from './pages/student/BookAppointment';
+import { StudentAppointments } from './pages/student/StudentAppointments';
+import { DoctorQueue } from './pages/doctor/DoctorQueue';
+import { DoctorScheduleManager } from './pages/doctor/DoctorScheduleManager';
+
+// Phase 3 Pages
+import { DoctorConsultation } from './pages/doctor/DoctorConsultation';
+import { MedicalHistory } from './pages/student/MedicalHistory';
+import { StudentPrescriptions } from './pages/student/StudentPrescriptions';
+
+const DashboardRouter: React.FC = () => {
+  const { user } = useAuth();
+  if (!user) return <Navigate to="/login" replace />;
+
+  switch (user.role) {
+    case 'STUDENT':
+      return <StudentDashboard />;
+    case 'DOCTOR':
+      return <DoctorDashboard />;
+    case 'PHARMACIST':
+      return <PharmacistDashboard />;
+    case 'ADMIN':
+      return <AdminDashboard />;
+    default:
+      return <Navigate to="/login" replace />;
+  }
+};
+
+const LayoutShell: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  return (
+    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col">
+      <Navbar />
+      <div className="flex flex-1">
+        <Sidebar />
+        <main className="flex-1 p-4 sm:p-6 md:p-8 max-w-7xl mx-auto w-full overflow-x-hidden">
+          {children}
+        </main>
+      </div>
+    </div>
+  );
+};
+
+export const AppContent: React.FC = () => {
+  return (
+    <Routes>
+      {/* Public Auth Routes */}
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<StudentRegister />} />
+
+      {/* Protected Routes inside Application Shell */}
+      <Route element={<ProtectedRoute />}>
+        <Route
+          path="/dashboard"
+          element={
+            <LayoutShell>
+              <DashboardRouter />
+            </LayoutShell>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <LayoutShell>
+              <ProfilePage />
+            </LayoutShell>
+          }
+        />
+
+        {/* Student Routes */}
+        <Route
+          path="/appointments/book"
+          element={
+            <LayoutShell>
+              <BookAppointment />
+            </LayoutShell>
+          }
+        />
+        <Route
+          path="/appointments"
+          element={
+            <LayoutShell>
+              <StudentAppointments />
+            </LayoutShell>
+          }
+        />
+        <Route
+          path="/history"
+          element={
+            <LayoutShell>
+              <MedicalHistory />
+            </LayoutShell>
+          }
+        />
+        <Route
+          path="/prescriptions"
+          element={
+            <LayoutShell>
+              <StudentPrescriptions />
+            </LayoutShell>
+          }
+        />
+
+        {/* Doctor Routes */}
+        <Route
+          path="/doctor/queue"
+          element={
+            <LayoutShell>
+              <DoctorQueue />
+            </LayoutShell>
+          }
+        />
+        <Route
+          path="/doctor/schedule"
+          element={
+            <LayoutShell>
+              <DoctorScheduleManager />
+            </LayoutShell>
+          }
+        />
+        <Route
+          path="/doctor/consultation"
+          element={
+            <LayoutShell>
+              <DoctorConsultation />
+            </LayoutShell>
+          }
+        />
+      </Route>
+
+      {/* Fallback */}
+      <Route path="*" element={<Navigate to="/dashboard" replace />} />
+    </Routes>
+  );
+};
+
+export const App: React.FC = () => {
+  return (
+    <Router>
+      <ToastProvider>
+        <AuthProvider>
+          <AppContent />
+        </AuthProvider>
+      </ToastProvider>
+    </Router>
+  );
+};
+
+export default App;
