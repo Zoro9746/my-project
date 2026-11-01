@@ -53,15 +53,15 @@ export const DoctorQueue: React.FC = () => {
     {
       header: 'Token #',
       cell: (item) => (
-        <span className="font-extrabold text-lg text-emerald-400">#{item.tokenNo}</span>
+        <span className="font-extrabold text-lg text-purple-700">#{item.tokenNo}</span>
       ),
     },
     {
       header: 'Patient Name & Roll No',
       cell: (item) => (
         <div>
-          <p className="font-bold text-slate-100">{item.student.user.name}</p>
-          <p className="text-xs text-slate-400 font-mono">Roll: {item.student.rollNo}</p>
+          <p className="font-bold text-indigo-950">{item.student.user.name}</p>
+          <p className="text-xs text-indigo-600/80 font-mono">Roll: {item.student.rollNo}</p>
         </div>
       ),
     },
@@ -69,7 +69,7 @@ export const DoctorQueue: React.FC = () => {
       header: 'Department & Blood Group',
       cell: (item) => (
         <div className="text-xs">
-          <p className="text-slate-200">{item.student.department}</p>
+          <p className="text-indigo-950 font-medium">{item.student.department}</p>
           <Badge variant="success" size="sm">
             {item.student.bloodGroup}
           </Badge>
@@ -79,7 +79,7 @@ export const DoctorQueue: React.FC = () => {
     {
       header: 'Time Slot',
       cell: (item) => (
-        <span className="text-xs font-mono font-bold text-emerald-400 bg-emerald-950/40 px-2 py-1 rounded border border-emerald-500/30">
+        <span className="text-xs font-mono font-bold text-purple-700 bg-purple-50 px-2 py-1 rounded-lg border border-purple-200">
           {item.timeSlot}
         </span>
       ),
@@ -87,7 +87,7 @@ export const DoctorQueue: React.FC = () => {
     {
       header: 'Allergies / Alert',
       cell: (item) => (
-        <span className="text-xs text-rose-400 font-medium">
+        <span className="text-xs text-rose-700 font-medium">
           {item.student.allergies || 'None'}
         </span>
       ),
@@ -111,7 +111,7 @@ export const DoctorQueue: React.FC = () => {
       header: 'Actions',
       cell: (item) => {
         if (item.status === 'COMPLETED' || item.status === 'CANCELLED') {
-          return <span className="text-xs text-slate-500 italic">Done</span>;
+          return <span className="text-xs text-indigo-400 italic font-medium">Done</span>;
         }
 
         return (
@@ -152,24 +152,24 @@ export const DoctorQueue: React.FC = () => {
 
       {/* Metrics Header Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <Card hoverable className="border-l-4 border-l-sky-500">
-          <p className="text-xs font-bold uppercase text-slate-400">Total Tokens Today</p>
-          <h3 className="text-2xl font-extrabold text-white mt-1">{queueData?.metrics.total || 0}</h3>
+        <Card hoverable className="border-t-4 border-t-purple-600">
+          <p className="text-xs font-extrabold uppercase text-indigo-900">Total Tokens Today</p>
+          <h3 className="text-2xl font-black text-indigo-950 mt-1">{queueData?.metrics.total || 0}</h3>
         </Card>
 
-        <Card hoverable className="border-l-4 border-l-amber-500">
-          <p className="text-xs font-bold uppercase text-slate-400">Pending Patients</p>
-          <h3 className="text-2xl font-extrabold text-amber-400 mt-1">{queueData?.metrics.pending || 0}</h3>
+        <Card hoverable className="border-t-4 border-t-amber-600">
+          <p className="text-xs font-extrabold uppercase text-indigo-900">Pending Patients</p>
+          <h3 className="text-2xl font-black text-amber-700 mt-1">{queueData?.metrics.pending || 0}</h3>
         </Card>
 
-        <Card hoverable className="border-l-4 border-l-emerald-500">
-          <p className="text-xs font-bold uppercase text-slate-400">Completed Consultations</p>
-          <h3 className="text-2xl font-extrabold text-emerald-400 mt-1">{queueData?.metrics.completed || 0}</h3>
+        <Card hoverable className="border-t-4 border-t-emerald-600">
+          <p className="text-xs font-extrabold uppercase text-indigo-900">Completed Consultations</p>
+          <h3 className="text-2xl font-black text-emerald-700 mt-1">{queueData?.metrics.completed || 0}</h3>
         </Card>
 
-        <Card hoverable className="border-l-4 border-l-rose-500">
-          <p className="text-xs font-bold uppercase text-slate-400">Cancelled / No Show</p>
-          <h3 className="text-2xl font-extrabold text-rose-400 mt-1">{queueData?.metrics.cancelled || 0}</h3>
+        <Card hoverable className="border-t-4 border-t-rose-600">
+          <p className="text-xs font-extrabold uppercase text-indigo-900">Cancelled / No Show</p>
+          <h3 className="text-2xl font-black text-rose-700 mt-1">{queueData?.metrics.cancelled || 0}</h3>
         </Card>
       </div>
 

@@ -179,38 +179,38 @@ export const DoctorConsultation: React.FC = () => {
       />
 
       {/* Patient Vitals & Profile Banner */}
-      <Card className="border-l-4 border-l-emerald-500">
+      <Card className="border-t-4 border-t-purple-600">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs">
           <div>
-            <span className="text-slate-400 font-semibold block">Patient Name:</span>
-            <span className="text-base font-bold text-slate-100">{appointment.student.user.name}</span>
+            <span className="text-indigo-600/80 font-semibold block">Patient Name:</span>
+            <span className="text-base font-bold text-indigo-950">{appointment.student.user.name}</span>
           </div>
           <div>
-            <span className="text-slate-400 font-semibold block">Roll Number:</span>
-            <span className="font-mono text-emerald-400 font-bold">{appointment.student.rollNo}</span>
+            <span className="text-indigo-600/80 font-semibold block">Roll Number:</span>
+            <span className="font-mono text-purple-700 font-bold">{appointment.student.rollNo}</span>
           </div>
           <div>
-            <span className="text-slate-400 font-semibold block">Blood Group:</span>
+            <span className="text-indigo-600/80 font-semibold block">Blood Group:</span>
             <Badge variant="success" size="md">
               {appointment.student.bloodGroup}
             </Badge>
           </div>
           <div>
-            <span className="text-slate-400 font-semibold block">Known Allergies:</span>
-            <span className="text-rose-400 font-bold">{appointment.student.allergies || 'None'}</span>
+            <span className="text-indigo-600/80 font-semibold block">Known Allergies:</span>
+            <span className="text-rose-700 font-bold">{appointment.student.allergies || 'None'}</span>
           </div>
         </div>
       </Card>
 
       {/* Mode Switcher Tabs */}
-      <div className="flex items-center gap-3 border-b border-slate-800 pb-2">
+      <div className="flex items-center gap-3 border-b border-indigo-100 pb-2">
         <button
           type="button"
           onClick={() => setActiveTab('consult')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all ${
             activeTab === 'consult'
-              ? 'bg-emerald-600/20 text-emerald-400 border border-emerald-500/40 shadow-lg'
-              : 'text-slate-400 hover:text-white'
+              ? 'bg-purple-600 text-white shadow-sm border border-purple-600'
+              : 'text-indigo-700 hover:bg-purple-50 bg-white border border-indigo-100'
           }`}
         >
           <Stethoscope className="w-4 h-4" />
@@ -222,8 +222,8 @@ export const DoctorConsultation: React.FC = () => {
           onClick={() => setActiveTab('history')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all ${
             activeTab === 'history'
-              ? 'bg-emerald-600/20 text-emerald-400 border border-emerald-500/40 shadow-lg'
-              : 'text-slate-400 hover:text-white'
+              ? 'bg-purple-600 text-white shadow-sm border border-purple-600'
+              : 'text-indigo-700 hover:bg-purple-50 bg-white border border-indigo-100'
           }`}
         >
           <History className="w-4 h-4" />
@@ -238,7 +238,7 @@ export const DoctorConsultation: React.FC = () => {
             <Card title="Clinical Diagnosis & Notes">
               <div className="space-y-4">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-extrabold text-indigo-900 uppercase tracking-wider mb-1.5">
                     Chief Symptoms / Complaints *
                   </label>
                   <textarea
@@ -247,12 +247,12 @@ export const DoctorConsultation: React.FC = () => {
                     placeholder="e.g. High fever (102°F), severe body ache, sore throat for 2 days"
                     value={symptoms}
                     onChange={(e) => setSymptoms(e.target.value)}
-                    className="w-full bg-slate-800/80 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-500 text-sm p-3 focus:outline-none focus:border-emerald-500"
+                    className="w-full bg-white border border-indigo-200 rounded-xl text-indigo-950 placeholder-indigo-300 text-sm p-3 focus:outline-none focus:border-purple-600 focus:ring-4 focus:ring-purple-500/20"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-extrabold text-indigo-900 uppercase tracking-wider mb-1.5">
                     Diagnosis / Medical Impression *
                   </label>
                   <textarea
@@ -261,12 +261,12 @@ export const DoctorConsultation: React.FC = () => {
                     placeholder="e.g. Acute Viral Pharyngitis"
                     value={diagnosis}
                     onChange={(e) => setDiagnosis(e.target.value)}
-                    className="w-full bg-slate-800/80 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-500 text-sm p-3 focus:outline-none focus:border-emerald-500"
+                    className="w-full bg-white border border-indigo-200 rounded-xl text-indigo-950 placeholder-indigo-300 text-sm p-3 focus:outline-none focus:border-purple-600 focus:ring-4 focus:ring-purple-500/20"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-extrabold text-indigo-900 uppercase tracking-wider mb-1.5">
                     Doctor Advice / Clinical Notes
                   </label>
                   <textarea
@@ -274,7 +274,7 @@ export const DoctorConsultation: React.FC = () => {
                     placeholder="e.g. Drink warm fluids, 3 days complete rest, re-visit if fever persists"
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
-                    className="w-full bg-slate-800/80 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-500 text-sm p-3 focus:outline-none focus:border-emerald-500"
+                    className="w-full bg-white border border-indigo-200 rounded-xl text-indigo-950 placeholder-indigo-300 text-sm p-3 focus:outline-none focus:border-purple-600 focus:ring-4 focus:ring-purple-500/20"
                   />
                 </div>
               </div>
@@ -283,8 +283,8 @@ export const DoctorConsultation: React.FC = () => {
             {/* Right Column: Digital Prescription Items Builder */}
             <Card title="Issue Digital Prescription (Live Inventory)">
               <div className="space-y-4">
-                <div className="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-3">
-                  <p className="text-xs font-bold text-slate-300 uppercase tracking-wider">
+                <div className="p-4 rounded-xl bg-purple-50/60 border border-purple-100 space-y-3">
+                  <p className="text-xs font-bold text-indigo-900 uppercase tracking-wider">
                     Add Medicine Item from Live Stock
                   </p>
 
@@ -332,12 +332,12 @@ export const DoctorConsultation: React.FC = () => {
 
                 {/* Added Medicines Table */}
                 <div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-indigo-900 mb-2">
                     Prescription Medicines List ({prescriptionItems.length})
                   </h4>
 
                   {prescriptionItems.length === 0 ? (
-                    <div className="p-4 rounded-xl bg-slate-900/40 border border-slate-800 text-center text-xs text-slate-400">
+                    <div className="p-4 rounded-xl bg-indigo-50/50 border border-indigo-100 text-center text-xs text-indigo-600/80">
                       No medicines added to this prescription yet. (Optional)
                     </div>
                   ) : (
@@ -345,18 +345,18 @@ export const DoctorConsultation: React.FC = () => {
                       {prescriptionItems.map((item, idx) => (
                         <div
                           key={idx}
-                          className="flex items-center justify-between p-3 rounded-xl bg-slate-800/60 border border-slate-700/60 text-xs"
+                          className="flex items-center justify-between p-3 rounded-xl bg-white border border-indigo-100 text-xs shadow-sm"
                         >
                           <div>
-                            <p className="font-bold text-slate-100">{item.medicineName}</p>
-                            <p className="text-emerald-400 text-[11px] font-medium">
+                            <p className="font-bold text-indigo-950">{item.medicineName}</p>
+                            <p className="text-emerald-700 text-[11px] font-medium">
                               Qty: {item.quantity} {item.unit} | {item.dosageInstructions}
                             </p>
                           </div>
                           <button
                             type="button"
                             onClick={() => handleRemovePrescriptionItem(idx)}
-                            className="p-1.5 rounded-lg bg-rose-950/40 text-rose-400 hover:bg-rose-900/60 transition-colors"
+                            className="p-1.5 rounded-lg bg-rose-50 text-rose-600 hover:bg-rose-100 transition-colors border border-rose-200"
                           >
                             <Trash2 className="w-4 h-4" />
                           </button>
@@ -369,7 +369,7 @@ export const DoctorConsultation: React.FC = () => {
             </Card>
           </div>
 
-          <div className="flex justify-end pt-4 border-t border-slate-800">
+          <div className="flex justify-end pt-4 border-t border-indigo-100">
             <Button type="submit" size="lg" loading={submitting} icon={<CheckCircle2 />}>
               Complete Consultation & Save Record
             </Button>
@@ -381,50 +381,50 @@ export const DoctorConsultation: React.FC = () => {
           {loadingHistory ? (
             <Spinner size="md" />
           ) : !patientHistory || patientHistory.visits.length === 0 ? (
-            <div className="p-8 text-center glass-panel rounded-xl border border-slate-800">
-              <FileText className="w-10 h-10 text-slate-600 mx-auto mb-2" />
-              <p className="text-xs text-slate-400">No previous medical visits recorded for this student.</p>
+            <div className="p-8 text-center bg-white rounded-xl border border-indigo-100 shadow-sm">
+              <FileText className="w-10 h-10 text-indigo-300 mx-auto mb-2" />
+              <p className="text-xs text-indigo-600/80">No previous medical visits recorded for this student.</p>
             </div>
           ) : (
             <div className="space-y-4">
               {patientHistory.visits.map((visit) => (
-                <div key={visit.id} className="p-4 rounded-xl bg-slate-800/60 border border-slate-700/60 space-y-3">
-                  <div className="flex items-center justify-between border-b border-slate-700/50 pb-2 text-xs">
+                <div key={visit.id} className="p-4 rounded-xl bg-white border border-indigo-100 space-y-3 shadow-sm">
+                  <div className="flex items-center justify-between border-b border-indigo-100 pb-2 text-xs">
                     <div>
-                      <span className="font-bold text-slate-100">
+                      <span className="font-bold text-indigo-950">
                         Visit Date: {new Date(visit.createdAt).toLocaleDateString()}
                       </span>
-                      <span className="text-slate-400 ml-2">Doctor: {visit.doctor.user.name}</span>
+                      <span className="text-indigo-600/80 ml-2">Doctor: {visit.doctor.user.name}</span>
                     </div>
                     <Badge variant="info">Token #{visit.appointment?.tokenNo || 1}</Badge>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                     <div>
-                      <span className="text-slate-400 font-semibold block">Symptoms:</span>
-                      <p className="text-slate-200">{visit.symptoms}</p>
+                      <span className="text-indigo-700 font-semibold block">Symptoms:</span>
+                      <p className="text-indigo-950">{visit.symptoms}</p>
                     </div>
                     <div>
-                      <span className="text-slate-400 font-semibold block">Diagnosis:</span>
-                      <p className="text-emerald-400 font-bold">{visit.diagnosis}</p>
+                      <span className="text-indigo-700 font-semibold block">Diagnosis:</span>
+                      <p className="text-emerald-700 font-bold">{visit.diagnosis}</p>
                     </div>
                   </div>
 
                   {visit.notes && (
-                    <p className="text-xs text-slate-300 bg-slate-900/60 p-2.5 rounded-lg border border-slate-800">
-                      <span className="font-semibold text-slate-400">Advice Notes:</span> {visit.notes}
+                    <p className="text-xs text-indigo-950 bg-purple-50/60 p-2.5 rounded-lg border border-purple-100">
+                      <span className="font-semibold text-indigo-700">Advice Notes:</span> {visit.notes}
                     </p>
                   )}
 
                   {/* Prescribed items if present */}
                   {visit.prescriptions && visit.prescriptions.length > 0 && (
-                    <div className="pt-2 border-t border-slate-700/40 text-xs">
-                      <p className="font-semibold text-slate-400 mb-1">Prescribed Medicines:</p>
+                    <div className="pt-2 border-t border-indigo-100 text-xs">
+                      <p className="font-semibold text-indigo-700 mb-1">Prescribed Medicines:</p>
                       <div className="flex flex-wrap gap-2">
                         {visit.prescriptions[0].items.map((it) => (
                           <span
                             key={it.id}
-                            className="px-2.5 py-1 rounded-lg bg-slate-900 text-slate-200 border border-slate-700 font-medium"
+                            className="px-2.5 py-1 rounded-lg bg-indigo-50 text-indigo-950 border border-indigo-100 font-medium"
                           >
                             {it.medicine.name} x {it.quantity} ({it.dosageInstructions})
                           </span>

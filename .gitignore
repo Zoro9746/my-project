@@ -1,0 +1,29 @@
+# ─── Dependencies ────────────────────────────────────────────────────────────
+node_modules/
+
+# ─── Build Outputs ───────────────────────────────────────────────────────────
+backend/dist/
+frontend/dist/
+
+# ─── Environment / Secrets ───────────────────────────────────────────────────
+.env
+.env.local
+.env.production
+.env.staging
+
+# ─── Database ────────────────────────────────────────────────────────────────
+*.db
+*.db-shm
+*.db-wal
+
+# ─── Prisma Engine Binaries ──────────────────────────────────────────────────
+backend/node_modules/.cache/
+
+# ─── OS / Editor ─────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/settings.json
+
+# ─── Logs ────────────────────────────────────────────────────────────────────
+*.log
+npm-debug.log*

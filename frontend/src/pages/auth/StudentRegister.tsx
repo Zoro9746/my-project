@@ -59,17 +59,21 @@ export const StudentRegister: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 relative overflow-hidden py-12">
+    <div className="min-h-screen flex items-center justify-center p-4 bg-[#f4f3ff] relative overflow-hidden py-12">
+      {/* Background ambient elements */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none" />
+
       <div className="w-full max-w-2xl relative z-10">
         <div className="text-center mb-6">
-          <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center shadow-xl shadow-emerald-500/20 mx-auto mb-3">
-            <HeartPulse className="w-8 h-8 text-white" />
+          <div className="w-16 h-16 rounded-2xl bg-purple-600 flex items-center justify-center shadow-xl shadow-purple-500/30 mx-auto mb-3 border border-purple-400/30">
+            <HeartPulse className="w-10 h-10 text-white" />
           </div>
-          <h1 className="text-2xl font-extrabold text-white">Student Registration</h1>
-          <p className="text-xs text-slate-400 mt-1">BIT Health Center Patient Portal Account</p>
+          <h1 className="text-2xl sm:text-3xl font-black text-indigo-950 tracking-tight">STUDENT REGISTRATION</h1>
+          <p className="text-xs font-black text-purple-600 uppercase tracking-widest mt-1">BIT Health Center Patient Portal Account</p>
         </div>
 
-        <div className="glass-card rounded-2xl p-6 sm:p-8 shadow-2xl border border-slate-700/60">
+        <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-xl border border-indigo-100">
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Input
@@ -188,11 +192,11 @@ export const StudentRegister: React.FC = () => {
             </Button>
           </form>
 
-          <div className="mt-6 pt-6 border-t border-slate-800 text-center">
-            <p className="text-xs text-slate-400">Already registered?</p>
+          <div className="mt-6 pt-6 border-t border-indigo-50 text-center">
+            <p className="text-xs text-indigo-600/80 font-medium">Already registered?</p>
             <Link
               to="/login"
-              className="text-xs font-bold text-emerald-400 hover:text-emerald-300 transition-colors mt-1 inline-block"
+              className="text-xs font-extrabold text-purple-600 hover:text-purple-700 transition-colors mt-1 inline-block"
             >
               ← Back to Sign In
             </Link>

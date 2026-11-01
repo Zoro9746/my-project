@@ -114,7 +114,7 @@ export const BookAppointment: React.FC = () => {
           <Card title="1. Select Specialist & Date">
             <div className="space-y-4">
               <div>
-                <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                <label className="block text-xs font-extrabold text-indigo-900 uppercase tracking-wider mb-1.5">
                   Choose Campus Doctor
                 </label>
                 <div className="space-y-2">
@@ -125,21 +125,21 @@ export const BookAppointment: React.FC = () => {
                       onClick={() => setSelectedDoctorId(doc.id)}
                       className={`w-full p-3 rounded-xl border text-left transition-all flex items-start gap-3 ${
                         selectedDoctorId === doc.id
-                          ? 'bg-emerald-600/20 border-emerald-500 text-white shadow-lg shadow-emerald-600/10'
-                          : 'bg-slate-800/60 border-slate-700/60 text-slate-300 hover:bg-slate-800'
+                          ? 'bg-purple-600 border-purple-600 text-white shadow-md'
+                          : 'bg-white border-indigo-100 text-indigo-950 hover:bg-purple-50'
                       }`}
                     >
                       <div
                         className={`p-2.5 rounded-lg shrink-0 ${
-                          selectedDoctorId === doc.id ? 'bg-emerald-500 text-white' : 'bg-slate-700 text-slate-400'
+                          selectedDoctorId === doc.id ? 'bg-purple-500 text-white' : 'bg-purple-100 text-purple-700'
                         }`}
                       >
                         <Stethoscope className="w-5 h-5" />
                       </div>
                       <div>
                         <h4 className="text-sm font-bold">{doc.user.name}</h4>
-                        <p className="text-xs text-emerald-400 font-semibold">{doc.specialization}</p>
-                        <p className="text-[11px] text-slate-400 mt-1">Room: {doc.roomNo}</p>
+                        <p className={`text-xs font-semibold ${selectedDoctorId === doc.id ? 'text-purple-100' : 'text-purple-600'}`}>{doc.specialization}</p>
+                        <p className={`text-[11px] mt-1 ${selectedDoctorId === doc.id ? 'text-purple-200' : 'text-indigo-600/70'}`}>Room: {doc.roomNo}</p>
                       </div>
                     </button>
                   ))}
@@ -163,17 +163,17 @@ export const BookAppointment: React.FC = () => {
           {selectedDoctor && (
             <Card title="Doctor Working Hours">
               <div className="space-y-3 text-xs">
-                <div className="flex justify-between p-2.5 rounded-lg bg-slate-800/50">
-                  <span className="text-slate-400">Doctor Name:</span>
-                  <span className="font-bold text-slate-100">{selectedDoctor.user.name}</span>
+                <div className="flex justify-between p-2.5 rounded-lg bg-purple-50/60 border border-purple-100">
+                  <span className="text-indigo-700">Doctor Name:</span>
+                  <span className="font-bold text-indigo-950">{selectedDoctor.user.name}</span>
                 </div>
-                <div className="flex justify-between p-2.5 rounded-lg bg-slate-800/50">
-                  <span className="text-slate-400">Specialization:</span>
-                  <span className="font-bold text-emerald-400">{selectedDoctor.specialization}</span>
+                <div className="flex justify-between p-2.5 rounded-lg bg-purple-50/60 border border-purple-100">
+                  <span className="text-indigo-700">Specialization:</span>
+                  <span className="font-bold text-purple-700">{selectedDoctor.specialization}</span>
                 </div>
-                <div className="flex justify-between p-2.5 rounded-lg bg-slate-800/50">
-                  <span className="text-slate-400">Consultation Room:</span>
-                  <span className="font-bold text-slate-100">{selectedDoctor.roomNo}</span>
+                <div className="flex justify-between p-2.5 rounded-lg bg-purple-50/60 border border-purple-100">
+                  <span className="text-indigo-700">Consultation Room:</span>
+                  <span className="font-bold text-indigo-950">{selectedDoctor.roomNo}</span>
                 </div>
               </div>
             </Card>
@@ -193,27 +193,27 @@ export const BookAppointment: React.FC = () => {
             {loadingSlots ? (
               <Spinner size="md" className="py-12" />
             ) : !availability?.isWorkingDay ? (
-              <div className="p-8 text-center glass-panel rounded-xl border border-slate-800 my-4">
-                <ShieldAlert className="w-10 h-10 text-amber-400 mx-auto mb-2" />
-                <h4 className="text-sm font-bold text-slate-200">Doctor Not Available</h4>
-                <p className="text-xs text-slate-400 max-w-sm mx-auto mt-1">
+              <div className="p-8 text-center bg-white rounded-xl border border-indigo-100 shadow-sm my-4">
+                <ShieldAlert className="w-10 h-10 text-amber-600 mx-auto mb-2" />
+                <h4 className="text-sm font-bold text-indigo-950">Doctor Not Available</h4>
+                <p className="text-xs text-indigo-600/80 max-w-sm mx-auto mt-1">
                   {availability?.message || 'The selected doctor has no scheduled OPD hours on this date.'}
                 </p>
               </div>
             ) : (
               <div className="space-y-4">
-                <div className="flex flex-wrap items-center gap-4 text-xs font-semibold pb-2 border-b border-slate-800">
+                <div className="flex flex-wrap items-center gap-4 text-xs font-semibold pb-2 border-b border-indigo-100">
                   <div className="flex items-center gap-1.5">
-                    <span className="w-3 h-3 rounded-full bg-emerald-500 inline-block" />
-                    <span className="text-slate-300">Available</span>
+                    <span className="w-3 h-3 rounded-full bg-emerald-600 inline-block" />
+                    <span className="text-indigo-950">Available</span>
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <span className="w-3 h-3 rounded-full bg-rose-500/40 inline-block" />
-                    <span className="text-slate-400">Booked / Occupied</span>
+                    <span className="w-3 h-3 rounded-full bg-rose-200 inline-block" />
+                    <span className="text-indigo-600/80">Booked / Occupied</span>
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <span className="w-3 h-3 rounded-full bg-slate-700 inline-block" />
-                    <span className="text-slate-500">Passed</span>
+                    <span className="w-3 h-3 rounded-full bg-indigo-100 inline-block" />
+                    <span className="text-indigo-400">Passed</span>
                   </div>
                 </div>
 
@@ -230,12 +230,12 @@ export const BookAppointment: React.FC = () => {
                         onClick={() => setSelectedSlot(slot.timeSlot)}
                         className={`p-2.5 rounded-xl border text-xs font-bold transition-all flex flex-col items-center justify-center gap-1 ${
                           isSelected
-                            ? 'bg-emerald-500 text-white border-emerald-400 ring-2 ring-emerald-400/50 scale-105 shadow-lg shadow-emerald-500/20'
+                            ? 'bg-purple-600 text-white border-purple-600 ring-2 ring-purple-500/50 scale-105 shadow-md'
                             : slot.isBooked
-                            ? 'bg-rose-950/20 border-rose-500/30 text-rose-400/60 cursor-not-allowed line-through'
+                            ? 'bg-rose-50 border-rose-200 text-rose-400 cursor-not-allowed line-through'
                             : slot.isPast
-                            ? 'bg-slate-800/40 border-slate-800 text-slate-600 cursor-not-allowed'
-                            : 'bg-slate-800/80 border-slate-700 text-slate-200 hover:border-emerald-500 hover:text-emerald-400'
+                            ? 'bg-indigo-50/50 border-indigo-100 text-indigo-300 cursor-not-allowed'
+                            : 'bg-white border-indigo-200 text-indigo-950 hover:border-purple-600 hover:text-purple-700 hover:bg-purple-50'
                         }`}
                       >
                         <span>{slot.timeSlot}</span>
@@ -245,14 +245,14 @@ export const BookAppointment: React.FC = () => {
                   })}
                 </div>
 
-                <div className="pt-6 border-t border-slate-800 flex items-center justify-between">
+                <div className="pt-6 border-t border-indigo-100 flex items-center justify-between">
                   <div>
                     {selectedSlot ? (
-                      <p className="text-sm font-semibold text-slate-200">
-                        Selected Slot: <span className="text-emerald-400 font-bold">{selectedSlot}</span> on {selectedDate}
+                      <p className="text-sm font-semibold text-indigo-950">
+                        Selected Slot: <span className="text-purple-600 font-bold">{selectedSlot}</span> on {selectedDate}
                       </p>
                     ) : (
-                      <p className="text-xs text-slate-400">Please click a slot above to select time.</p>
+                      <p className="text-xs text-indigo-600/80 font-medium">Please click a slot above to select time.</p>
                     )}
                   </div>
 
@@ -284,33 +284,33 @@ export const BookAppointment: React.FC = () => {
           maxWidth="md"
         >
           <div className="text-center py-4 space-y-4">
-            <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center mx-auto text-emerald-400 shadow-xl shadow-emerald-500/20">
+            <div className="w-16 h-16 rounded-full bg-purple-100 border border-purple-200 flex items-center justify-center mx-auto text-purple-600 shadow-lg">
               <Check className="w-10 h-10" />
             </div>
 
             <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Daily Queue Token</p>
-              <h2 className="text-4xl font-extrabold text-emerald-400 mt-1">TOKEN #{bookedAppointment.tokenNo}</h2>
+              <p className="text-xs font-extrabold uppercase tracking-widest text-indigo-900">Daily Queue Token</p>
+              <h2 className="text-4xl font-black text-purple-600 mt-1">TOKEN #{bookedAppointment.tokenNo}</h2>
             </div>
 
-            <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 text-left text-xs space-y-2 text-slate-300">
+            <div className="p-4 rounded-xl bg-purple-50/60 border border-purple-100 text-left text-xs space-y-2 text-indigo-950">
               <div className="flex justify-between">
-                <span className="text-slate-400">Doctor:</span>
-                <span className="font-bold text-slate-100">{bookedAppointment.doctor.user.name}</span>
+                <span className="text-indigo-700">Doctor:</span>
+                <span className="font-bold text-indigo-950">{bookedAppointment.doctor.user.name}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-400">Date:</span>
-                <span className="font-bold text-slate-100">
+                <span className="text-indigo-700">Date:</span>
+                <span className="font-bold text-indigo-950">
                   {new Date(bookedAppointment.date).toLocaleDateString()}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-400">Time Slot:</span>
-                <span className="font-bold text-emerald-400">{bookedAppointment.timeSlot}</span>
+                <span className="text-indigo-700">Time Slot:</span>
+                <span className="font-bold text-purple-600">{bookedAppointment.timeSlot}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-400">Consultation Room:</span>
-                <span className="font-bold text-slate-100">{bookedAppointment.doctor.roomNo}</span>
+                <span className="text-indigo-700">Consultation Room:</span>
+                <span className="font-bold text-indigo-950">{bookedAppointment.doctor.roomNo}</span>
               </div>
             </div>
 

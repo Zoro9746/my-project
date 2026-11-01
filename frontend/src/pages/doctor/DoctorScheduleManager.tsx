@@ -112,14 +112,14 @@ export const DoctorScheduleManager: React.FC = () => {
                 <div
                   className={`w-10 h-10 rounded-xl flex items-center justify-center font-bold text-sm ${
                     sch.active
-                      ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40'
-                      : 'bg-slate-800 text-slate-500'
+                      ? 'bg-purple-100 text-purple-700 border border-purple-200'
+                      : 'bg-indigo-50 text-indigo-400 border border-indigo-100'
                   }`}
                 >
                   {daysOfWeekNames[dayIdx].substring(0, 3)}
                 </div>
                 <div>
-                  <h4 className="text-base font-bold text-slate-100">{daysOfWeekNames[dayIdx]}</h4>
+                  <h4 className="text-base font-bold text-indigo-950">{daysOfWeekNames[dayIdx]}</h4>
                   <Badge variant={sch.active ? 'success' : 'neutral'} size="sm">
                     {sch.active ? 'OPD Active' : 'Off Day'}
                   </Badge>
@@ -128,7 +128,7 @@ export const DoctorScheduleManager: React.FC = () => {
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 flex-1">
                 <div>
-                  <label className="block text-[10px] font-bold text-slate-400 uppercase mb-1">
+                  <label className="block text-[10px] font-bold text-indigo-900 uppercase mb-1">
                     Active Status
                   </label>
                   <button
@@ -136,8 +136,8 @@ export const DoctorScheduleManager: React.FC = () => {
                     onClick={() => handleFieldChange(dayIdx, 'active', !sch.active)}
                     className={`w-full py-2 px-3 rounded-lg text-xs font-bold transition-all border ${
                       sch.active
-                        ? 'bg-emerald-600/20 text-emerald-400 border-emerald-500/40'
-                        : 'bg-slate-800 text-slate-400 border-slate-700'
+                        ? 'bg-purple-600 text-white border-purple-600 shadow-sm'
+                        : 'bg-purple-50 text-indigo-700 border-purple-100 hover:bg-purple-100'
                     }`}
                   >
                     {sch.active ? 'Active Day' : 'Closed'}

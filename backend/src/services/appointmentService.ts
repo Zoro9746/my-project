@@ -1,4 +1,5 @@
 import { prisma } from '../config/prisma';
+import { NotificationService } from './notificationService';
 
 export class AppointmentService {
   /**

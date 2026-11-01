@@ -8,6 +8,10 @@ import appointmentRoutes from './routes/appointmentRoutes';
 import consultationRoutes from './routes/consultationRoutes';
 import prescriptionRoutes from './routes/prescriptionRoutes';
 import medicineRoutes from './routes/medicineRoutes';
+import stockRoutes from './routes/stockRoutes';
+import adminRoutes from './routes/adminRoutes';
+import notificationRoutes from './routes/notificationRoutes';
+import reportRoutes from './routes/reportRoutes';
 
 dotenv.config();
 
@@ -44,6 +48,10 @@ app.use('/api/appointments', appointmentRoutes);
 app.use('/api/consultations', consultationRoutes);
 app.use('/api/prescriptions', prescriptionRoutes);
 app.use('/api/medicines', medicineRoutes);
+app.use('/api/stock', stockRoutes);
+app.use('/api/admin', adminRoutes);
+app.use('/api/notifications', notificationRoutes);
+app.use('/api/reports', reportRoutes);
 
 // 404 Route Handler
 app.use((req, res) => {

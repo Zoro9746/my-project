@@ -19,28 +19,28 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     return (
       <div className="w-full space-y-1.5">
         {label && (
-          <label htmlFor={selectId} className="block text-xs font-semibold text-slate-300 uppercase tracking-wider">
+          <label htmlFor={selectId} className="block text-xs font-extrabold text-indigo-900 uppercase tracking-wider">
             {label}
           </label>
         )}
         <select
           id={selectId}
           ref={ref}
-          className={`w-full bg-slate-800/80 border ${
-            error ? 'border-rose-500' : 'border-slate-700 focus:border-emerald-500 focus:ring-emerald-500/20'
-          } rounded-lg text-slate-100 text-sm transition-all focus:outline-none focus:ring-4 px-3.5 py-2.5 ${className}`}
+          className={`w-full bg-white border ${
+            error ? 'border-rose-500' : 'border-indigo-200 focus:border-purple-600 focus:ring-purple-500/20'
+          } rounded-xl text-indigo-950 text-sm transition-all focus:outline-none focus:ring-4 px-3.5 py-2.5 ${className}`}
           {...props}
         >
           {options.map((opt) => (
-            <option key={opt.value} value={opt.value} className="bg-slate-900 text-slate-100">
+            <option key={opt.value} value={opt.value} className="bg-white text-indigo-950">
               {opt.label}
             </option>
           ))}
         </select>
         {error ? (
-          <p className="text-xs text-rose-400 font-medium">{error}</p>
+          <p className="text-xs text-rose-600 font-bold">{error}</p>
         ) : helperText ? (
-          <p className="text-xs text-slate-400">{helperText}</p>
+          <p className="text-xs text-indigo-500">{helperText}</p>
         ) : null}
       </div>
     );

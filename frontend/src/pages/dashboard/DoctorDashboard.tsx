@@ -35,24 +35,24 @@ export const DoctorDashboard: React.FC = () => {
   const columns: Column<Appointment>[] = [
     {
       header: 'Token #',
-      cell: (item) => <span className="font-extrabold text-emerald-400">#{item.tokenNo}</span>,
+      cell: (item) => <span className="font-extrabold text-purple-700">#{item.tokenNo}</span>,
     },
     {
       header: 'Student Name',
       cell: (item) => (
         <div>
-          <p className="font-bold text-slate-100">{item.student.user.name}</p>
-          <p className="text-xs text-slate-400 font-mono">Roll: {item.student.rollNo}</p>
+          <p className="font-bold text-indigo-950">{item.student.user.name}</p>
+          <p className="text-xs text-indigo-600/80 font-mono">Roll: {item.student.rollNo}</p>
         </div>
       ),
     },
     {
       header: 'Time Slot',
-      cell: (item) => <span className="font-mono text-emerald-400 font-bold">{item.timeSlot}</span>,
+      cell: (item) => <span className="font-mono text-purple-700 font-bold">{item.timeSlot}</span>,
     },
     {
       header: 'Department',
-      cell: (item) => <span className="text-xs text-slate-300">{item.student.department}</span>,
+      cell: (item) => <span className="text-xs text-indigo-800 font-medium">{item.student.department}</span>,
     },
     {
       header: 'Status',
@@ -78,29 +78,29 @@ export const DoctorDashboard: React.FC = () => {
 
       {/* Metrics Row */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-        <Card hoverable className="border-l-4 border-l-sky-500">
-          <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Total Today</p>
-          <h3 className="text-2xl font-extrabold text-white mt-1">{queueData?.metrics.total || 0}</h3>
+        <Card hoverable className="border-t-4 border-t-purple-600">
+          <p className="text-xs font-extrabold uppercase tracking-wider text-indigo-900">Total Today</p>
+          <h3 className="text-2xl font-black text-indigo-950 mt-1">{queueData?.metrics.total || 0}</h3>
         </Card>
 
-        <Card hoverable className="border-l-4 border-l-amber-500">
-          <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Pending Queue</p>
-          <h3 className="text-2xl font-extrabold text-amber-400 mt-1">{queueData?.metrics.pending || 0}</h3>
+        <Card hoverable className="border-t-4 border-t-amber-600">
+          <p className="text-xs font-extrabold uppercase tracking-wider text-indigo-900">Pending Queue</p>
+          <h3 className="text-2xl font-black text-amber-700 mt-1">{queueData?.metrics.pending || 0}</h3>
         </Card>
 
-        <Card hoverable className="border-l-4 border-l-emerald-500">
-          <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Completed</p>
-          <h3 className="text-2xl font-extrabold text-emerald-400 mt-1">{queueData?.metrics.completed || 0}</h3>
+        <Card hoverable className="border-t-4 border-t-emerald-600">
+          <p className="text-xs font-extrabold uppercase tracking-wider text-indigo-900">Completed</p>
+          <h3 className="text-2xl font-black text-emerald-700 mt-1">{queueData?.metrics.completed || 0}</h3>
         </Card>
 
-        <Card hoverable className="border-l-4 border-l-rose-500">
-          <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Cancelled</p>
-          <h3 className="text-2xl font-extrabold text-rose-400 mt-1">{queueData?.metrics.cancelled || 0}</h3>
+        <Card hoverable className="border-t-4 border-t-rose-600">
+          <p className="text-xs font-extrabold uppercase tracking-wider text-indigo-900">Cancelled</p>
+          <h3 className="text-2xl font-black text-rose-700 mt-1">{queueData?.metrics.cancelled || 0}</h3>
         </Card>
 
-        <Card hoverable className="border-l-4 border-l-purple-500">
-          <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Active Slots</p>
-          <h3 className="text-2xl font-extrabold text-purple-400 mt-1">32</h3>
+        <Card hoverable className="border-t-4 border-t-indigo-600">
+          <p className="text-xs font-extrabold uppercase tracking-wider text-indigo-900">Active Slots</p>
+          <h3 className="text-2xl font-black text-indigo-950 mt-1">32</h3>
         </Card>
       </div>
 
@@ -117,17 +117,17 @@ export const DoctorDashboard: React.FC = () => {
 
         <Card title="Consultation Quick Info" className="lg:col-span-1">
           <div className="space-y-3 text-xs">
-            <div className="p-3 rounded-xl bg-slate-800/60 border border-slate-700/50">
-              <span className="text-slate-400 font-semibold block">OPD Hours:</span>
-              <span className="text-slate-100 font-bold">09:00 AM – 05:00 PM</span>
+            <div className="p-3 rounded-xl bg-purple-50/60 border border-purple-100">
+              <span className="text-indigo-700 font-semibold block">OPD Hours:</span>
+              <span className="text-indigo-950 font-bold">09:00 AM – 05:00 PM</span>
             </div>
-            <div className="p-3 rounded-xl bg-slate-800/60 border border-slate-700/50">
-              <span className="text-slate-400 font-semibold block">Slot Duration:</span>
-              <span className="text-slate-100 font-bold">15 Minutes / Token</span>
+            <div className="p-3 rounded-xl bg-purple-50/60 border border-purple-100">
+              <span className="text-indigo-700 font-semibold block">Slot Duration:</span>
+              <span className="text-indigo-950 font-bold">15 Minutes / Token</span>
             </div>
-            <div className="p-3 rounded-xl bg-slate-800/60 border border-slate-700/50">
-              <span className="text-slate-400 font-semibold block">Emergency Hotline:</span>
-              <span className="text-emerald-400 font-bold">+91 98765 43210</span>
+            <div className="p-3 rounded-xl bg-purple-50/60 border border-purple-100">
+              <span className="text-indigo-700 font-semibold block">Emergency Hotline:</span>
+              <span className="text-purple-700 font-bold">+91 98765 43210</span>
             </div>
           </div>
         </Card>

@@ -26,6 +26,20 @@ import { DoctorConsultation } from './pages/doctor/DoctorConsultation';
 import { MedicalHistory } from './pages/student/MedicalHistory';
 import { StudentPrescriptions } from './pages/student/StudentPrescriptions';
 
+// Phase 4 Pages
+import { PharmacistDispense } from './pages/pharmacy/PharmacistDispense';
+import { InventoryManager } from './pages/pharmacy/InventoryManager';
+import { StockAlerts } from './pages/pharmacy/StockAlerts';
+import { StockTransactions } from './pages/pharmacy/StockTransactions';
+
+// Phase 5 Pages
+import { AdminUserManagement } from './pages/admin/AdminUserManagement';
+import { AdminDoctorManagement } from './pages/admin/AdminDoctorManagement';
+import { AdminMedicineControl } from './pages/admin/AdminMedicineControl';
+
+// Phase 6 Pages
+import { ReportsCenter } from './pages/reports/ReportsCenter';
+
 const DashboardRouter: React.FC = () => {
   const { user } = useAuth();
   if (!user) return <Navigate to="/login" replace />;
@@ -46,7 +60,7 @@ const DashboardRouter: React.FC = () => {
 
 const LayoutShell: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col">
+    <div className="min-h-screen bg-[#f4f3ff] text-indigo-950 flex flex-col font-sans">
       <Navbar />
       <div className="flex flex-1">
         <Sidebar />
@@ -140,6 +154,76 @@ export const AppContent: React.FC = () => {
           element={
             <LayoutShell>
               <DoctorConsultation />
+            </LayoutShell>
+          }
+        />
+
+        {/* Pharmacist & Pharmacy Routes */}
+        <Route
+          path="/pharmacy/prescriptions"
+          element={
+            <LayoutShell>
+              <PharmacistDispense />
+            </LayoutShell>
+          }
+        />
+        <Route
+          path="/pharmacy/inventory"
+          element={
+            <LayoutShell>
+              <InventoryManager />
+            </LayoutShell>
+          }
+        />
+        <Route
+          path="/pharmacy/alerts"
+          element={
+            <LayoutShell>
+              <StockAlerts />
+            </LayoutShell>
+          }
+        />
+        <Route
+          path="/pharmacy/transactions"
+          element={
+            <LayoutShell>
+              <StockTransactions />
+            </LayoutShell>
+          }
+        />
+
+        {/* Admin Routes */}
+        <Route
+          path="/admin/users"
+          element={
+            <LayoutShell>
+              <AdminUserManagement />
+            </LayoutShell>
+          }
+        />
+        <Route
+          path="/admin/doctors"
+          element={
+            <LayoutShell>
+              <AdminDoctorManagement />
+            </LayoutShell>
+          }
+        />
+        <Route
+          path="/admin/medicines"
+          element={
+            <LayoutShell>
+              <AdminMedicineControl />
+            </LayoutShell>
+          }
+        />
+
+        {/* Reports Center (Admin, Doctor, Pharmacist) */}
+        <Route
+          path="/reports"
+          element={
+            <LayoutShell>
+              <ReportsCenter />
             </LayoutShell>
           }
         />

@@ -119,15 +119,15 @@ export const StudentAppointments: React.FC = () => {
     {
       header: 'Token #',
       cell: (item) => (
-        <span className="font-extrabold text-emerald-400 text-sm">#{item.tokenNo}</span>
+        <span className="font-extrabold text-purple-700 text-sm">#{item.tokenNo}</span>
       ),
     },
     {
       header: 'Doctor & Specialization',
       cell: (item) => (
         <div>
-          <p className="font-bold text-slate-100">{item.doctor.user.name}</p>
-          <p className="text-xs text-slate-400">{item.doctor.specialization}</p>
+          <p className="font-bold text-indigo-950">{item.doctor.user.name}</p>
+          <p className="text-xs text-indigo-600/80">{item.doctor.specialization}</p>
         </div>
       ),
     },
@@ -135,16 +135,16 @@ export const StudentAppointments: React.FC = () => {
       header: 'Date & Time Slot',
       cell: (item) => (
         <div className="text-xs">
-          <p className="font-semibold text-slate-200">
+          <p className="font-semibold text-indigo-950">
             {new Date(item.date).toLocaleDateString()}
           </p>
-          <p className="text-emerald-400 font-mono font-bold mt-0.5">{item.timeSlot}</p>
+          <p className="text-purple-600 font-mono font-bold mt-0.5">{item.timeSlot}</p>
         </div>
       ),
     },
     {
       header: 'Consultation Room',
-      cell: (item) => <span className="text-xs font-medium text-slate-300">{item.doctor.roomNo}</span>,
+      cell: (item) => <span className="text-xs font-medium text-indigo-800">{item.doctor.roomNo}</span>,
     },
     {
       header: 'Status',
@@ -154,7 +154,7 @@ export const StudentAppointments: React.FC = () => {
       header: 'Actions',
       cell: (item) => {
         if (item.status === 'CANCELLED' || item.status === 'COMPLETED') {
-          return <span className="text-xs text-slate-500 italic">No actions available</span>;
+          return <span className="text-xs text-indigo-400 italic">No actions available</span>;
         }
 
         return (
@@ -227,8 +227,8 @@ export const StudentAppointments: React.FC = () => {
           maxWidth="lg"
         >
           <div className="space-y-4">
-            <p className="text-xs text-slate-300">
-              Rescheduling for <span className="font-bold text-white">{rescheduleAppointmentObj.doctor.user.name}</span>
+            <p className="text-xs text-indigo-800">
+              Rescheduling for <span className="font-bold text-indigo-950">{rescheduleAppointmentObj.doctor.user.name}</span>
             </p>
 
             <Input
@@ -241,13 +241,13 @@ export const StudentAppointments: React.FC = () => {
             />
 
             <div>
-              <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+              <label className="block text-xs font-extrabold text-indigo-900 uppercase tracking-wider mb-2">
                 Available Time Slots
               </label>
               {loadingSlots ? (
-                <div className="py-6 text-center text-xs text-slate-400">Loading available slots...</div>
+                <div className="py-6 text-center text-xs text-indigo-500">Loading available slots...</div>
               ) : !availability?.isWorkingDay ? (
-                <p className="text-xs text-amber-400 bg-amber-950/20 p-3 rounded-lg border border-amber-500/30">
+                <p className="text-xs text-amber-800 bg-amber-50 p-3 rounded-xl border border-amber-200">
                   Doctor is not available on this day.
                 </p>
               ) : (
@@ -264,10 +264,10 @@ export const StudentAppointments: React.FC = () => {
                         onClick={() => setNewSlot(slot.timeSlot)}
                         className={`p-2 rounded-lg text-xs font-bold border transition-all ${
                           isSelected
-                            ? 'bg-emerald-500 text-white border-emerald-400'
+                            ? 'bg-purple-600 text-white border-purple-600'
                             : isDisabled
-                            ? 'bg-slate-800/40 text-slate-600 border-slate-800 cursor-not-allowed'
-                            : 'bg-slate-800 text-slate-200 border-slate-700 hover:border-emerald-500'
+                            ? 'bg-indigo-50/50 text-indigo-300 border-indigo-100 cursor-not-allowed'
+                            : 'bg-white text-indigo-950 border-indigo-200 hover:border-purple-600 hover:bg-purple-50'
                         }`}
                       >
                         {slot.timeSlot}
@@ -278,7 +278,7 @@ export const StudentAppointments: React.FC = () => {
               )}
             </div>
 
-            <div className="flex justify-end gap-3 pt-4 border-t border-slate-800">
+            <div className="flex justify-end gap-3 pt-4 border-t border-indigo-100">
               <Button variant="ghost" onClick={() => setRescheduleAppointmentObj(null)}>
                 Cancel
               </Button>

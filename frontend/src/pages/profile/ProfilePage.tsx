@@ -53,12 +53,12 @@ export const ProfilePage: React.FC = () => {
         {/* User Identity Overview Card */}
         <Card className="lg:col-span-1">
           <div className="flex flex-col items-center text-center p-4">
-            <div className="w-20 h-20 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center text-white text-3xl font-extrabold shadow-xl shadow-emerald-500/20 mb-4">
+            <div className="w-20 h-20 rounded-2xl bg-purple-600 flex items-center justify-center text-white text-3xl font-black shadow-xl shadow-purple-500/20 mb-4 border border-purple-400/30">
               {user.name.charAt(0)}
             </div>
-            <h3 className="text-xl font-bold text-slate-100">{user.name}</h3>
-            <p className="text-xs text-slate-400 mt-1 flex items-center gap-1">
-              <Mail className="w-3.5 h-3.5" />
+            <h3 className="text-xl font-bold text-indigo-950">{user.name}</h3>
+            <p className="text-xs text-indigo-600/80 mt-1 flex items-center gap-1 font-medium">
+              <Mail className="w-3.5 h-3.5 text-purple-600" />
               {user.email}
             </p>
 
@@ -69,20 +69,20 @@ export const ProfilePage: React.FC = () => {
               </Badge>
             </div>
 
-            <div className="w-full mt-6 pt-6 border-t border-slate-800 space-y-3 text-left text-xs text-slate-300">
+            <div className="w-full mt-6 pt-6 border-t border-indigo-100 space-y-3 text-left text-xs text-indigo-950">
               {user.student && (
                 <>
                   <div className="flex justify-between">
-                    <span className="text-slate-400">Roll Number:</span>
-                    <span className="font-semibold text-slate-100">{user.student.rollNo}</span>
+                    <span className="text-indigo-600/80">Roll Number:</span>
+                    <span className="font-semibold text-indigo-950">{user.student.rollNo}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-slate-400">Department:</span>
-                    <span className="font-semibold text-slate-100 text-right">{user.student.department}</span>
+                    <span className="text-indigo-600/80">Department:</span>
+                    <span className="font-semibold text-indigo-950 text-right">{user.student.department}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-slate-400">Blood Group:</span>
-                    <span className="font-semibold text-emerald-400">{user.student.bloodGroup}</span>
+                    <span className="text-indigo-600/80">Blood Group:</span>
+                    <span className="font-semibold text-emerald-700">{user.student.bloodGroup}</span>
                   </div>
                 </>
               )}
@@ -90,16 +90,16 @@ export const ProfilePage: React.FC = () => {
               {user.doctor && (
                 <>
                   <div className="flex justify-between">
-                    <span className="text-slate-400">Specialization:</span>
-                    <span className="font-semibold text-slate-100">{user.doctor.specialization}</span>
+                    <span className="text-indigo-600/80">Specialization:</span>
+                    <span className="font-semibold text-indigo-950">{user.doctor.specialization}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-slate-400">Consultation Room:</span>
-                    <span className="font-semibold text-slate-100">{user.doctor.roomNo}</span>
+                    <span className="text-indigo-600/80">Consultation Room:</span>
+                    <span className="font-semibold text-indigo-950">{user.doctor.roomNo}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-slate-400">Phone Ext:</span>
-                    <span className="font-semibold text-slate-100">{user.doctor.phone}</span>
+                    <span className="text-indigo-600/80">Phone Ext:</span>
+                    <span className="font-semibold text-indigo-950">{user.doctor.phone}</span>
                   </div>
                 </>
               )}

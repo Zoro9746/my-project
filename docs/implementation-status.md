@@ -20,6 +20,19 @@
 | **Phase 3** | Live Medicine Stock Selection | **COMPLETED** | `medicineService.ts`, `DoctorConsultation.tsx` | Validated against stock |
 | **Phase 3** | Stock Non-Deduction Verification | **COMPLETED** | `prescription.test.ts` | Stock untouched until dispense |
 | **Phase 3** | Patient Medical History Portal | **COMPLETED** | `MedicalHistory.tsx`, `StudentPrescriptions.tsx` | Past visits & prescriptions |
-| **Phase 4** | Medication Stock Control | **NOT STARTED** | - | - |
-| **Phase 5** | Admin Panel & Analytics | **NOT STARTED** | - | - |
-| **Phase 6** | Notifications & Reports | **NOT STARTED** | - | - |
+| **Phase 4** | Pharmacist Dispensing Queue | **COMPLETED** | `stockService.ts`, `PharmacistDispense.tsx` | Verified stock deduction |
+| **Phase 4** | Atomic Stock Deduction | **COMPLETED** | `stockService.ts`, `inventory.test.ts` | `prisma.$transaction` rollback |
+| **Phase 4** | Inward Stock Additions (Stock-IN) | **COMPLETED** | `stockService.ts`, `InventoryManager.tsx` | Stock-IN logging & batches |
+| **Phase 4** | Stock Audit Trail (IN/OUT) | **COMPLETED** | `stockController.ts`, `StockTransactions.tsx` | Immutable audit log table |
+| **Phase 4** | Low-Stock & Expiry Alerts | **COMPLETED** | `stockService.ts`, `StockAlerts.tsx` | Reorder & 30-day alerts |
+| **Phase 5** | Admin Analytics Engine | **COMPLETED** | `adminService.ts`, `AdminDashboard.tsx` | System metrics & summary cards |
+| **Phase 5** | User Account Directory & Role Filtering | **COMPLETED** | `adminController.ts`, `AdminUserManagement.tsx` | Filter by Student/Doctor/Pharma |
+| **Phase 5** | Account Activation Controls | **COMPLETED** | `adminService.ts`, `AdminUserManagement.tsx` | Active/Inactive toggle switches |
+| **Phase 5** | Admin Forced Password Reset | **COMPLETED** | `adminService.ts`, `AdminUserManagement.tsx` | Hashed password resets |
+| **Phase 5** | Doctor Roster & Room Assignments | **COMPLETED** | `adminService.ts`, `AdminDoctorManagement.tsx` | Specialization & Room updates |
+| **Phase 5** | Master Inventory Catalog Controls | **COMPLETED** | `adminService.ts`, `AdminMedicineControl.tsx` | Master stock override modal |
+| **Phase 6** | Automated In-App System Notifications | **COMPLETED** | `notificationService.ts`, `NotificationDrawer.tsx` | Booking & stock triggers |
+| **Phase 6** | Header Notification Drawer | **COMPLETED** | `NotificationDrawer.tsx`, `Navbar.tsx` | Live unread badge & drawer |
+| **Phase 6** | Operational Reporting Engine | **COMPLETED** | `reportService.ts`, `ReportsCenter.tsx` | Date-range filters & metrics |
+| **Phase 6** | CSV / Excel File Exporting | **COMPLETED** | `exportUtils.ts`, `ReportsCenter.tsx` | 1-click CSV file downloads |
+| **Phase 6** | End-to-End Test Suite & Verification | **COMPLETED** | `backend/src/__tests__/` | **35/35 Tests Passing (100%)** |

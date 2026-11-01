@@ -23,10 +23,10 @@ export function Table<T>({
   loading = false,
 }: TableProps<T>) {
   return (
-    <div className="w-full overflow-x-auto rounded-xl border border-slate-800 bg-slate-900/60 glass-panel shadow-lg">
+    <div className="w-full overflow-x-auto rounded-xl border border-indigo-100 bg-white shadow-sm">
       <table className="w-full text-left border-collapse text-sm">
         <thead>
-          <tr className="border-b border-slate-800 bg-slate-800/40 text-slate-400 font-semibold uppercase tracking-wider text-xs">
+          <tr className="border-b border-indigo-100 bg-indigo-50/70 text-indigo-900 font-black uppercase tracking-wider text-[11px]">
             {columns.map((col, idx) => (
               <th key={idx} className={`px-4 py-3.5 ${col.className || ''}`}>
                 {col.header}
@@ -34,25 +34,25 @@ export function Table<T>({
             ))}
           </tr>
         </thead>
-        <tbody className="divide-y divide-slate-800/60 text-slate-200">
+        <tbody className="divide-y divide-indigo-50/80 text-indigo-950">
           {loading ? (
             <tr>
-              <td colSpan={columns.length} className="px-4 py-8 text-center text-slate-400">
+              <td colSpan={columns.length} className="px-4 py-8 text-center text-indigo-600/80 font-medium">
                 <div className="flex items-center justify-center gap-2">
-                  <div className="w-4 h-4 rounded-full border-2 border-emerald-500 border-t-transparent animate-spin" />
+                  <div className="w-4 h-4 rounded-full border-2 border-purple-600 border-t-transparent animate-spin" />
                   Loading data...
                 </div>
               </td>
             </tr>
           ) : data.length === 0 ? (
             <tr>
-              <td colSpan={columns.length} className="px-4 py-8 text-center text-slate-400">
+              <td colSpan={columns.length} className="px-4 py-8 text-center text-indigo-400 font-medium">
                 {emptyMessage}
               </td>
             </tr>
           ) : (
             data.map((item) => (
-              <tr key={keyExtractor(item)} className="hover:bg-slate-800/40 transition-colors">
+              <tr key={keyExtractor(item)} className="hover:bg-indigo-50/50 transition-colors">
                 {columns.map((col, idx) => (
                   <td key={idx} className={`px-4 py-3.5 ${col.className || ''}`}>
                     {col.cell
