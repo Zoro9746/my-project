@@ -15,6 +15,7 @@ frontend/dist/
 *.db
 *.db-shm
 *.db-wal
+*.db.backup
 
 # ─── Prisma Engine Binaries ──────────────────────────────────────────────────
 backend/node_modules/.cache/

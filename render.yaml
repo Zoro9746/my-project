@@ -3,16 +3,14 @@ services:
     name: bit-health-center
     runtime: node
     rootDir: backend
-    buildCommand: npm install && npx prisma generate && npm run build
+    buildCommand: npm install && npx prisma generate && npx prisma migrate deploy && npm run build
     startCommand: npm start
     envVars:
       - key: NODE_ENV
         value: production
       - key: DATABASE_URL
-        value: file:./prisma/dev.db
+        sync: false        # Set manually in Render dashboard — Neon PostgreSQL connection string
+      - key: JWT_SECRET
+        sync: false        # Set manually in Render dashboard — use a NEW secret, never the old one
       - key: JWT_EXPIRES_IN
         value: 24h
-      - key: JWT_SECRET
-        sync: false
-      - key: PORT
-        value: 5000
